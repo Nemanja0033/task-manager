@@ -6,7 +6,7 @@ import TaskCard from "./components/TaskCard";
 
 const App = () => {
   const { darkMode, toggleTheme } = useThemeStore();
-  const { tasks, addTask, removeTask, editTask} = useTaskStore();
+  const { tasks, addTask } = useTaskStore();
   const [isOpenEdit, setIsOpenEdit] = useState(false);
   const [taskTitle, setTaskTitle] = useState('');
   console.log(tasks);
