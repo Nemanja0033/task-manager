@@ -12,12 +12,14 @@ const App = () => {
   console.log(tasks);
 
   return (
-    <main className="grid grid-cols-1 place-items-center">
+    <main className={`${darkMode ? 'bg-slate-950 text-white' : 'bg-gray-100'} grid grid-cols-1 place-items-center`}>
+      <button className="bg-black text-white rounded-lg p-1 scale-75 cursor-pointer" onClick={toggleTheme}>Light/Dark</button>
       <div className='lg:w-1/2 w-full h-screen overflow-auto shadow-md items-start rounded-lg m-5 p-3 bg-transparent grid grid-cols-1 gap-3 place-items-center'>
         <div className="flex justify-center items-center gap-1 w-full mt-10">
           <input className="w-full px-3 shadow-sm rounded-md border border-gray-300 h-8" onChange={(e) => setTaskTitle(e.target.value)} type="text" placeholder="New Task. . ." />
           <button onClick={() => addTask(taskTitle)} className="bg-black text-white rounded-lg p-1">Submit</button>
         </div>
+
         {tasks.map((t) => (
           <div className="w-full">
             <TaskCard title={t.title} id={t.id} completed={t.completed} toggleEdit={() => setIsOpenEdit(!isOpenEdit)} />

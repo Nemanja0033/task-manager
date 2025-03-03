@@ -7,6 +7,7 @@ export type Task = {
 export type TaskStore = {
     tasks: Task[],
     addTask: (title: string) => void,
+    toggleTask: (id: string) => void,
     editTask: (id: string, newTitle: string) => void,
     removeTask: (id: string) => void,
 }

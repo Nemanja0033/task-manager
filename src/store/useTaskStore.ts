@@ -7,7 +7,7 @@ export const useTaskStore = create<TaskStore>((set) => ({
       set((state) => ({
         tasks: [...state.tasks, { id: crypto.randomUUID(), title, completed: false }],
       })),
-    editTask: (id: string, newTitle: string) => 
+    editTask: (id: string, newTitle: string) =>  //edit task 
       set((state) => ({
         tasks: state.tasks.map((task) => task.id === id ? {...task, title: newTitle } : task)
       })),
