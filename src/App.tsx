@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTaskStore } from "./store/useTaskStore";
 import { useThemeStore } from "./store/useThemeStore"
-import EditModal from "./components/EditModal";
+import EditTask from "./components/EditTask";
 import TaskCard from "./components/TaskCard";
 
 const App = () => {
@@ -19,7 +19,10 @@ const App = () => {
           <button onClick={() => addTask(taskTitle)} className="bg-black text-white rounded-lg p-1">Submit</button>
         </div>
         {tasks.map((t) => (
-          <TaskCard title={t.title} id={t.id} completed={t.completed} toggleEdit={() => setIsOpenEdit(!isOpenEdit)} />
+          <div className="w-full">
+            <TaskCard title={t.title} id={t.id} completed={t.completed} toggleEdit={() => setIsOpenEdit(!isOpenEdit)} />
+            {isOpenEdit ? <EditTask closeEdit={() => setIsOpenEdit(!isOpenEdit)} id={t.id} currentTitle={t.title} /> : null}
+          </div>
         ))}
     </div>
     </main>
