@@ -3,7 +3,6 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { TaskStore } from "../types/TaskStoreTypes";
 
 //storing task state in localStorage using persist mehtod
-
 export const useTaskStore = create<TaskStore>()(
   persist(
     (set) => ({
